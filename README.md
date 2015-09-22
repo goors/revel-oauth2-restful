@@ -10,11 +10,11 @@ go get https://github.com/RangelReale/osin
 go get golang.org/x/oauth2
 </pre>
 
-### Start api with server:
+#### Start api with server:
 
     revel run restful
 
-### How to get token?
+#### How to get token?
 
 Open url <pre style="display: inline !important;">http://localhost:14000/?response_type=code&client_id=1234&redirect_uri=http://localhost:14000/appauth</pre>
 
@@ -25,7 +25,7 @@ You will get json:
 }
 </pre>
 
-### How to get check if API is protected with token?
+#### How to get check if API is protected with token?
 Open url <pre style="display: inline !important;">http://localhost:14000/example?access_token=somegarbagehere</pre> and you will see json
 <pre>
 {
@@ -34,7 +34,7 @@ Open url <pre style="display: inline !important;">http://localhost:14000/example
 </pre>
 
 
-### Project is using test storage but You can always use some database since storage is really straightforward.
+#### Project is using test storage but You can always use some database since storage is really straightforward.
 
 <pre>
 func NewTestStorage() *TestStorage {
