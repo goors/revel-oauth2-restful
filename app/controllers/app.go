@@ -5,14 +5,13 @@ import (
 	"github.com/RangelReale/osin"
 	"fmt"
 	"golang.org/x/oauth2"
-	"github.com/RangelReale/osin/example"
+	"restful/app/helpers"
 )
 var cfg = osin.NewServerConfig()
-var server = osin.NewServer(cfg, example.NewTestStorage())
+var server = osin.NewServer(cfg, helpers.NewStorage())
 
 type App struct {
 	*revel.Controller
-	Server *osin.Server
 }
 
 func (c App) Init() revel.Result{
@@ -73,8 +72,8 @@ func (c App) GetToken() revel.Result{
 
 	githubConfig := &oauth2.Config{
 
-		ClientID:     "1234", // change this to yours
-		ClientSecret: "aabbccdd",
+		ClientID:     "nikola", // change this to yours
+		ClientSecret: "nikola",
 		RedirectURL:  "http://localhost:14000/appauth", // change this to your webserver adddress
 		Scopes:       []string{"user:email"},
 		Endpoint: oauth2.Endpoint{
@@ -96,7 +95,8 @@ func (c App) GetToken() revel.Result{
 
 func (c App) Example() revel.Result  {
 	mp := map[string]interface{}{
-		"e":1,
+		"great":1,
 	}
+
 	return c.RenderJson(mp)
 }
