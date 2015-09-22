@@ -12,6 +12,7 @@ var server = osin.NewServer(cfg, example.NewTestStorage())
 
 type App struct {
 	*revel.Controller
+	Server *osin.Server
 }
 
 func (c App) Init() revel.Result{
@@ -42,7 +43,6 @@ func (c App) Index() revel.Result {
 	ar.Authorized = true
 	server.FinishAuthorizeRequest(resp, r, ar)
 	osin.OutputJSON(resp, w, r)
-
 
 	return nil
 }
